@@ -1,8 +1,9 @@
 package uk.org.mafoo.wordsearch;
 
+import java.io.*;
 import java.util.*;
 
-class GridFactory {
+public class GridFactory {
 
 	static Random rnd = new Random();
 	static final int MAX_TRIES = 500;
@@ -46,105 +47,19 @@ class GridFactory {
 		return chars[drng.getDistributedRandomNumber()];
 	}
 
-	public static void main(String[] args) {
+	public static void main(String[] args) throws IOException {
 		// Test invocation
-		char[][] g = makeGrid(new String[] {
-			"Aberdeenshire", 
-			"Anglesey", 
-			"Angus", 
-			"Antrim", 
-			"Argyll", 
-			"Armagh", 
-			"Ayrshire", 
-			"Banffshire", 
-			"Bedfordshire", 
-			"Berkshire", 
-			"Berwickshire", 
-			"Brecknockshire", 
-			"Buckinghamshire", 
-			"Buteshire", 
-			"Caernarfonshire", 
-			"Caithness", 
-			"Cambridgeshire", 
-			"Cardiganshire", 
-			"Carmarthenshire", 
-			"Cheshire", 
-			"Clackmannanshire", 
-			"Cornwall", 
-			"Cromartyshire", 
-			"Cumberland", 
-			"Denbighshire", 
-			"Derbyshire", 
-			"Devon", 
-			"Dorset", 
-			"Down", 
-			"Dumbartonshire", 
-			"Dumfriesshire", 
-			"Durham", 
-			"East Lothian", 
-			"Essex", 
-			"Fermanagh", 
-			"Fife", 
-			"Flintshire", 
-			"Glamorgan", 
-			"Gloucestershire", 
-			"Hampshire", 
-			"Herefordshire", 
-			"Hertfordshire", 
-			"Huntingdonshire", 
-			"Invernessshire", 
-			"Kent", 
-			"Kincardineshire", 
-			"Kirkcudbrightshire", 
-			"Lanarkshire", 
-			"Lancashire", 
-			"Leicestershire", 
-			"Lincolnshire", 
-			"Londonderry", 
-			"Merionethshire", 
-			"Middlesex", 
-			"Midlothian", 
-			"Monmouthshire", 
-			"Montgomeryshire", 
-			"Morayshire", 
-			"Nairnshire", 
-			"Norfolk", 
-			"Northamptonshire", 
-			"Northumberland", 
-			"Nottinghamshire", 
-			"Orkney", 
-			"Oxfordshire", 
-			"Peeblesshire", 
-			"Pembrokeshire", 
-			"Perthshire", 
-			"Radnorshire", 
-			"Renfrewshire", 
-			"Rossshire", 
-			"Roxburghshire", 
-			"Rutland", 
-			"Selkirkshire", 
-			"Shetland", 
-			"Shropshire", 
-			"Somerset", 
-			"Staffordshire", 
-			"Stirlingshire", 
-			"Suffolk", 
-			"Surrey", 
-			"Sussex", 
-			"Sutherland", 
-			"Tyrone", 
-			"Warwickshire", 
-			"West Lothian", 
-			"Westmorland", 
-			"Wigtownshire", 
-			"Wiltshire", 
-			"Worcestershire", 
-			"Yorkshire", 
-		}, Integer.parseInt(args[0]), Integer.parseInt(args[1]));
+		BufferedReader in = new BufferedReader(new InputStreamReader(System.in));
+		String s;
+		List<String> words = new ArrayList<String>();
+
+		while ((s = in.readLine()) != null && s.length() != 0) {
+			words.add(s);
+		}
+		char[][] g = makeGrid(words, Integer.parseInt(args[0]), Integer.parseInt(args[1]));
 		dump2d(g);
 	}
 
-	private enum Direction { N, NE, E, SE, S, SW, W, NW; };
 	private static Direction[] directions = new Direction[] { Direction.N, Direction.NE, Direction.E, Direction.SE, Direction.S, Direction.SW, Direction.W, Direction.NW };
 	private static Direction getDirection() {
 		return directions[rnd.nextInt(directions.length-1)];
@@ -236,7 +151,7 @@ class GridFactory {
 		return x;
 	}
 
-	public static char[][] makeGrid(String[] words, int height, int width) {
+	public static char[][] makeGrid(List<String> words, int height, int width) {
 		char[][] grid = new char[height][width];
 
 		// Place words at random?
@@ -252,6 +167,8 @@ class GridFactory {
 					}
 					tries++;
 					// System.out.println("[" + word + "] Crossed over... retrying");
+				} finally {
+					// Nothing
 				}
 			}
 		}

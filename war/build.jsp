@@ -18,6 +18,7 @@
 	int width  = Integer.parseInt(request.getParameter("width"));
 
 	if (request.getParameter("words").length() > 2048) { throw new Exception("Input too large"); }
+	if (height > 100 || width > 100) { throw new Exception("Dimentions too large"); }
 
 	List<String> words = new ArrayList<String>();
 	for ( String line : request.getParameter("words").split("\r\n")) {
@@ -29,14 +30,17 @@
 <body>
 <h1>Wordsearch builder</h1>
 <h2>Words</h2>
-<ul>
-<% for (String word : words) { %>
-   <li><%= word.trim() %></li>
-<% } %>
-</ul>
+
+<div style="float: right; padding: 15px;">
+	<ul>
+	<% for (String word : words) { %>
+	   <li><%= word.trim() %></li>
+	<% } %>
+	</ul>
+</div>
 
 <h2>Grid</h2>
-<table style="font-family: monospace;">
+<table style="font-family: monospace; font-size: 16;">
 <% for(char[] row : grid) { %>
 	<tr>
 		<% for(char c : row) { %>
@@ -45,8 +49,6 @@
 	</tr>
 <% } %>
 </table>
-<footer>
-	Generated
-</footer>
+
 </body>
 </html>

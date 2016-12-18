@@ -16,8 +16,8 @@ Hall
 Dining Room
 	</textarea>
 	<br />
-	<input type="number" name="height" min="3" max="50" value="5" />
-	<input type="number" name="width" min="3" max="50" value="5" />
+	<input type="number" name="height" min="3" max="50" value="15" />
+	<input type="number" name="width" min="3" max="50" value="15" />
 	<input type="submit" value="Build!" />
 </form>
 

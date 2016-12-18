@@ -7,10 +7,28 @@
 		border-collapse: collapse;
 		padding: 2px 4px;
 	}
+
+	#grid {
+		font-family: monospace; font-size: 16;
+	}
+
+	#wrapper {
+		width: 80%;
+		margin: 0 auto;
+	}
+	#wordsearch {
+		float: left;
+	}
+
+	#words {
+		float: right;
+		width: 200px;
+	}
 	</style>
 </head>
 <%@ page import="uk.org.mafoo.wordsearch.*" %>
 <%@ page import="java.util.*" %>
+<%@ page import="org.apache.commons.lang.StringUtils" %>
 <%@ page errorPage="error.jsp" %>
 <%
 
@@ -24,31 +42,52 @@
 	for ( String line : request.getParameter("words").split("\r\n")) {
 		words.add(line.trim());
 	}
-  	
+  	Collections.sort(words);
+
+
   	char[][] grid = GridFactory.makeGrid(words, height, width);
+
+  	String csv = "";
 %>
 <body>
 <h1>Wordsearch builder</h1>
-<h2>Words</h2>
-
-<div style="float: right; padding: 15px;">
-	<ul>
-	<% for (String word : words) { %>
-	   <li><%= word.trim() %></li>
-	<% } %>
-	</ul>
+<a id='csvdownload'>Download CSV</a>
+<script>
+    var csv = '<%= csv %>';
+    var csvdownload = document.getElementById('csvdownload');
+    csvdownload.href='data:text/csv;base64,' + btoa(csv);
+</script>
 </div>
 
-<h2>Grid</h2>
-<table style="font-family: monospace; font-size: 16;">
-<% for(char[] row : grid) { %>
-	<tr>
-		<% for(char c : row) { %>
-		<td><%= c %></td>
-		<% } %>
-	</tr>
-<% } %>
-</table>
+<div id="wrapper">
+<div id="wordsearch">
+	<h2>Grid</h2>
+	<table id="grid">
+	<% for(char[] row : grid) { %>
+		<tr>
+			<% for(char c : row) { 
+				csv += "" + c + ',';
+			%>
+			<td><%= c %></td>
+			<% 	} %>
+		</tr>
+	<% 
+		csv += "\\n";
+		}
+	%>
+	</table>
+</div> <!-- end wordsearch --> 
 
+<div id="words">
+	<h2>Words</h2>
+		<ul>
+		<% for (String word : words) { %>
+		   <li><%= word.trim() %></li>
+		<% } %>
+		</ul>
+</div> <!-- end words -->
+</div> <!-- end wrapper --> 
+<br />
+<div>
 </body>
 </html>

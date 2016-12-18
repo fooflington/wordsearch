@@ -1,0 +1,22 @@
+<html>
+<head>
+	<title>About</title>
+</head>
+
+<body>
+	<h1>Wordsearch Builder: About</h1>
+	Wordsearch Builder takes a list of words and places them on a grid in any direction allowing the to cross-over where possible then fills in the remaining empty spaces with semi-random letters.
+	<h2>Basic algorithm</h2>
+	<ol>
+		<li>Foreach word
+			<ol>
+				<li>Pick a direction at random</li>
+				<li>Compute possible start points based on word length, direction and grid size</li>
+				<li>Begin placing word. If an occupied cell is encountered which contains a different character than would go in for this word, then abort and start this word again.</li>
+			</ol>
+		</li>
+		<li>When all words are placed, infill the remaining cells with random characters weighted by <a href="https://www.math.cornell.edu/~mec/2003-2004/cryptography/subs/frequencies.html">standard English letter frequencies</a></li>
+	</ol>
+	The abort-and-retry word placement to try 500 times before giving up.
+</body>
+</html>

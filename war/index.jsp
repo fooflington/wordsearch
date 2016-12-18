@@ -2,8 +2,10 @@
 <head><title>Wordsearch builder</title></head>
 <body>
 <h1>Wordsearch builder</h1>
+<a href="about.html">About</a>
+
 <h2>Words</h2>
-<form action="build.jsp">
+<form action="build.jsp" method="post">
 <textarea name="words" rows="10">
 Kitchen
 Lounge

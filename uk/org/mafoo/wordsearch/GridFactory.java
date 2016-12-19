@@ -196,7 +196,7 @@ public class GridFactory {
 		// System.out.println("[" + word + "] Placing @ " + x + "," + y + " going " + direction);
 		char[][] tempgrid = clone2d(grid);
 		for( char c : word.toUpperCase().toCharArray() ) {
-			if(c==' ') continue;
+			if(!Character.isLetter(c)) continue;
 			if(grid[y][x] != Character.UNASSIGNED) {
 				if (grid[y][x] != c) {
 					throw new CouldNotPlaceWordException();

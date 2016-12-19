@@ -1,6 +1,8 @@
 Wordsearch
 ==========
 
+Demo available at: https://bombadil.mafoo.org.uk/wordsearch/
+
 Compiling
 ---------
 

@@ -2,6 +2,7 @@
 <head>
 	<title>Wordsearch builder</title>
 	<style>
+	body { font-family: sans-serif; }
 	table, th, td {
 		border: 1px solid black;
 		border-collapse: collapse;

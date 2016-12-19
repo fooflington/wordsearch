@@ -37,6 +37,7 @@
 <%@ page import="java.util.*" %>
 <%@ page import="org.apache.commons.lang.StringUtils" %>
 <%@ page import="org.apache.commons.lang.StringEscapeUtils" %>
+<%@ page errorPage="error.jsp" %>
 <%
 
 	int height = Integer.parseInt(request.getParameter("height"));

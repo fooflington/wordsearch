@@ -1,5 +1,8 @@
 <html>
-<head><title>Wordsearch builder</title></head>
+<head>
+	<title>Wordsearch builder</title>
+	<link rel="stylesheet" type="text/css" href="base.css" />
+</head>
 <body>
 <h1>Wordsearch builder</h1>
 <a href="about.html">About</a>
@@ -21,7 +24,7 @@ Dining Room
 	<br />
 	<input type="number" name="height" min="3" max="50" value="15" />
 	<input type="number" name="width" min="3" max="50" value="15" />
-	<input type="checkbox" name="simple" value="yes">Simple?
+	<input type="checkbox" name="simple" value="yes">Simple [<span class="tooltip" title="In simple mode, words are only placed Left-to-Right or Top-to-Bottom">?</span>]</span>
 	<input type="submit" value="Build!" />
 </form>
 

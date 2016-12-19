@@ -1,36 +1,8 @@
 <html>
 <head>
 	<title>Wordsearch builder</title>
+	<link rel="stylesheet" type="text/css" href="base.css" />
 	<style>
-	body { font-family: sans-serif; }
-	table, th, td {
-		border: 1px solid black;
-		border-collapse: collapse;
-		padding: 2px 4px;
-	}
-
-	#grid {
-		font-family: monospace; font-size: 16;
-	}
-
-	#wrapper {
-		width: 80%;
-		margin: 0 auto;
-	}
-	#wordsearch {
-		float: left;
-	}
-
-	#words {
-		float: right;
-		width: 200px;
-	}
-
-	@media only print {
-		.noprint {
-			display: none;
-		}
-	}
 	</style>
 </head>
 <%@ page import="uk.org.mafoo.wordsearch.*" %>

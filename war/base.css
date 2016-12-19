@@ -1,0 +1,38 @@
+body { 
+	font-family: sans-serif; 
+}
+
+.tooltip {
+	border-bottom: 1px dotted #000;
+	text-decoration: none;
+}
+
+table, th, td {
+	border: 1px solid black;
+	border-collapse: collapse;
+	padding: 2px 4px;
+}
+
+#grid {
+	font-family: monospace; font-size: 16;
+}
+
+#wrapper {
+	width: 80%;
+	margin: 0 auto;
+}
+
+#wordsearch {
+	float: left;
+}
+
+#words {
+	float: right;
+	width: 200px;
+}
+
+@media only print {
+	.noprint {
+		display: none;
+	}
+}

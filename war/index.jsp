@@ -6,6 +6,7 @@
 
 <h2>Words</h2>
 <form action="build.jsp" method="post">
+Name: <input type="text" size="25" name="name" value="Wordsearch"><br />
 <textarea name="words" rows="10">
 Kitchen
 Lounge
@@ -20,6 +21,7 @@ Dining Room
 	<br />
 	<input type="number" name="height" min="3" max="50" value="15" />
 	<input type="number" name="width" min="3" max="50" value="15" />
+	<input type="checkbox" name="simple" value="yes">Simple?
 	<input type="submit" value="Build!" />
 </form>
 

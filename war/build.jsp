@@ -24,16 +24,24 @@
 		float: right;
 		width: 200px;
 	}
+
+	@media only print {
+		.noprint {
+			display: none;
+		}
+	}
 	</style>
 </head>
 <%@ page import="uk.org.mafoo.wordsearch.*" %>
 <%@ page import="java.util.*" %>
 <%@ page import="org.apache.commons.lang.StringUtils" %>
-<%@ page errorPage="error.jsp" %>
+<%@ page import="org.apache.commons.lang.StringEscapeUtils" %>
 <%
 
 	int height = Integer.parseInt(request.getParameter("height"));
 	int width  = Integer.parseInt(request.getParameter("width"));
+	boolean simple = request.getParameter("simple") != null;
+	String name = StringEscapeUtils.escapeHtml(request.getParameter("name"));
 
 	if (request.getParameter("words").length() > 2048) { throw new Exception("Input too large"); }
 	if (height > 100 || width > 100) { throw new Exception("Dimentions too large"); }
@@ -44,14 +52,13 @@
 	}
   	Collections.sort(words);
 
-
-  	char[][] grid = GridFactory.makeGrid(words, height, width);
+  	char[][] grid = GridFactory.makeGrid(words, height, width, simple);
 
   	String csv = "";
 %>
 <body>
-<h1>Wordsearch builder</h1>
-<a id='csvdownload'>Download CSV</a>
+<h1><%= name %></h1>
+<a id='csvdownload' class="noprint">Download CSV</a>
 <script>
     var csv = '<%= csv %>';
     var csvdownload = document.getElementById('csvdownload');

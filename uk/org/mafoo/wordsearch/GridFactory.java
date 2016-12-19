@@ -61,9 +61,12 @@ public class GridFactory {
 	}
 
 	private static Direction[] directions = new Direction[] { Direction.N, Direction.NE, Direction.E, Direction.SE, Direction.S, Direction.SW, Direction.W, Direction.NW };
-	private static Direction getDirection() {
-		return directions[rnd.nextInt(directions.length-1)];
-		// return rnd.nextBoolean() ? Direction.E : Direction.S;
+	private static Direction getDirection(boolean simple) {
+		if(simple) {
+			return rnd.nextBoolean() ? Direction.E : Direction.S;
+		} else {
+			return directions[rnd.nextInt(directions.length-1)];
+		}
 	}
 
 	private static Bounds getBounds(int height, int width, Direction direction, int length) {
@@ -152,6 +155,10 @@ public class GridFactory {
 	}
 
 	public static char[][] makeGrid(List<String> words, int height, int width) {
+		return makeGrid(words, height, width, false);
+	}
+
+	public static char[][] makeGrid(List<String> words, int height, int width, boolean simple) {
 		char[][] grid = new char[height][width];
 
 		// Place words at random?
@@ -159,7 +166,7 @@ public class GridFactory {
 			int tries = 0;
 			while(true) {
 				try {
-					grid = placeWord(word, grid);
+					grid = placeWord(word, grid, simple);
 					break;
 				} catch (CouldNotPlaceWordException e) {
 					if(tries > MAX_TRIES) {
@@ -185,8 +192,8 @@ public class GridFactory {
 		return grid;
 	}
 
-	private static char[][] placeWord(String word, char[][] grid) throws CouldNotPlaceWordException {
-		Direction direction = getDirection();
+	private static char[][] placeWord(String word, char[][] grid, boolean simple) throws CouldNotPlaceWordException {
+		Direction direction = getDirection(simple);
 		Bounds b = getBounds(grid.length, grid[0].length, direction, word.length());
 		// System.out.println("[" + word + "] bounds: " + b);
 		

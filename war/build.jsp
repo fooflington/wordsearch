@@ -2,8 +2,6 @@
 <head>
 	<title>Wordsearch builder</title>
 	<link rel="stylesheet" type="text/css" href="base.css" />
-	<style>
-	</style>
 </head>
 <%@ page import="uk.org.mafoo.wordsearch.*" %>
 <%@ page import="java.util.*" %>
@@ -32,7 +30,9 @@
 %>
 <body>
 <h1><%= name %></h1>
-<a id='csvdownload' class="noprint">Download CSV</a>
+<div class="noprint">
+	[ <a href="index.jsp">Start again</a> | <a id='csvdownload'>Download CSV</a> ]
+</div>
 <script>
     var csv = '<%= csv %>';
     var csvdownload = document.getElementById('csvdownload');
@@ -49,7 +49,7 @@
 			<% for(char c : row) { 
 				csv += "" + c + ',';
 			%>
-			<td><%= c %></td>
+			<td class="cell"><%= c %></td>
 			<% 	} %>
 		</tr>
 	<% 

@@ -13,8 +13,9 @@ table, th, td {
 	padding: 2px 4px;
 }
 
-#grid {
-	font-family: monospace; font-size: 16;
+table#grid td {
+	font-family: monospace; 
+	font-size: 22;
 }
 
 #wrapper {

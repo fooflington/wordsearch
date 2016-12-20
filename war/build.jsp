@@ -1,3 +1,4 @@
+<!DOCTYPE html>
 <html>
 <head>
 	<title>Wordsearch builder</title>
@@ -68,7 +69,5 @@
 		</ul>
 </div> <!-- end words -->
 </div> <!-- end wrapper --> 
-<br />
-<div>
 </body>
 </html>

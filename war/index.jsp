@@ -1,3 +1,4 @@
+<!DOCTYPE html>
 <html>
 <head>
 	<title>Wordsearch builder</title>
@@ -27,7 +28,6 @@ Dining Room
 	<input type="checkbox" name="simple" value="yes">Simple [<span class="tooltip" title="In simple mode, words are only placed Left-to-Right or Top-to-Bottom">?</span>]</span>
 	<input type="submit" value="Build!" />
 </form>
-
 
 </body>
 </html>

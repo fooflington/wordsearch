@@ -15,7 +15,7 @@ table, th, td {
 
 table#grid td {
 	font-family: monospace; 
-	font-size: 22;
+	font-size: 22px;
 }
 
 #wrapper {
@@ -30,6 +30,10 @@ table#grid td {
 #words {
 	float: right;
 	width: 200px;
+}
+
+#footer {
+	float: bottom;
 }
 
 @media only print {

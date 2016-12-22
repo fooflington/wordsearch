@@ -1,13 +1,14 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>About</title>
+	<title>Wordsearch Builder: About</title>
 	<link rel="stylesheet" type="text/css" href="base.css" />
 </head>
 
 <body>
 	<h1><a href="index.jsp">Wordsearch Builder</a>: About</h1>
-	Wordsearch Builder takes a list of words and places them on a grid in any direction allowing the to cross-over where possible then fills in the remaining empty spaces with semi-random letters.
+	<p>Wordsearch Builder takes a list of words and places them on a grid in any direction allowing the to cross-over where possible then fills in the remaining empty spaces with semi-random letters.</p>
+	<p>Please feel free to use the generated wordsearches for whatever you want including in school classrooms or for personal use.</p>
 
 	<ul>
 		<li>Code available on <a href="https://github.com/fooflington/wordsearch">GitHub</a>.</li>
@@ -31,5 +32,9 @@
 		<li>Dynamic resizing of grid</li>
 		<li>Hide word list</li>
 	</ul>
+
+Thanks for trying it out :-)
+
+<%@include file="/WEB-INF/jspf/footer.jspf" %>
 </body>
 </html>

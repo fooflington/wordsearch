@@ -69,5 +69,8 @@
 		</ul>
 </div> <!-- end words -->
 </div> <!-- end wrapper --> 
+<br />
+<br />
+<%@include file="/WEB-INF/jspf/footer.jspf" %>
 </body>
 </html>

@@ -1,12 +1,12 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>Wordsearch builder</title>
+	<title>Wordsearch Builder</title>
 	<link rel="stylesheet" type="text/css" href="base.css" />
 </head>
 <body>
-<h1>Wordsearch builder</h1>
-<a href="about.html">About</a>
+<h1>Wordsearch Builder</h1>
+<a href="about.jsp">About</a>
 
 <h2>Words</h2>
 <form action="build.jsp" method="post">
@@ -29,5 +29,6 @@ Dining Room
 	<input type="submit" value="Build!" />
 </form>
 
+<%@include file="/WEB-INF/jspf/footer.jspf" %>
 </body>
 </html>

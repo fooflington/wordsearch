@@ -1,7 +1,6 @@
 #include "dir.h"
 #include "rnd.h"
 
-
 int directions[] = {
 	DIRECTION_N,
 	DIRECTION_NE,
@@ -13,10 +12,10 @@ int directions[] = {
 	DIRECTION_NW
 };
 
-
-int get_direction(int simple) {
-	if(simple) {
-		if(random_number(0, 1) == 0) {
+int get_direction(int simple)
+{
+	if (simple) {
+		if (random_number(0, 1) == 0) {
 			return DIRECTION_E;
 		} else {
 			return DIRECTION_S;
@@ -29,9 +28,10 @@ int get_direction(int simple) {
 #ifdef DEBUG_DIR_MAIN
 #include <stdio.h>
 
-int main() {
+int main()
+{
 	int n = 32;
-	while(--n > 0) {
+	while (--n > 0) {
 		printf("%d\n", get_direction(1));
 	}
 	return 0;

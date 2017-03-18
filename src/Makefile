@@ -1,5 +1,5 @@
 CC=gcc
-CFLAGS=-DDEBUG_GRID_MAIN
+CFLAGS=-DDEBUG_GRID_MAIN -std=c99 -g
 DEPS=dir.o rnd.o grid.o
 
 wordsearch: $(DEPS)

@@ -171,7 +171,6 @@ void free_grid(char** grid, int height) {
 	free(grid);
 }
 
-void print_grid(char** grid, int height);
 void print_grid(char** grid, int height) {
 	for(int i=0; i<height; i++) {
 		if(grid[i] == NULL) {

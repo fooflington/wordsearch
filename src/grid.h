@@ -21,5 +21,6 @@ char **init_grid(char** old, int height, int width);
 void free_grid(char** grid, int height);
 int move_x(int x, enum direction d);
 int move_y(int y, enum direction d);
+void print_grid(char** grid, int height);
 
 #endif

@@ -13,7 +13,11 @@
 
 	int height = Integer.parseInt(request.getParameter("height"));
 	int width  = Integer.parseInt(request.getParameter("width"));
-	boolean simple = request.getParameter("simple") != null;
+	Modes mode = Modes.NORMAL;
+	if(request.getParameter("mode") != null) {
+		if(request.getParameter("mode") == "SIMPLE") mode = Modes.SIMPLE;
+		if(request.getParameter("mode") == "CROSSWORD") mode = Modes.CROSSWORD;
+	}
 	String name = StringEscapeUtils.escapeHtml(request.getParameter("name"));
 
 	if (request.getParameter("words").length() > 2048) { throw new Exception("Input too large"); }
@@ -25,7 +29,7 @@
 	}
   	Collections.sort(words);
 
-  	char[][] grid = GridFactory.makeGrid(words, height, width, simple);
+  	char[][] grid = GridFactory.makeGrid(words, height, width, mode);
 
   	String csv = "";
 %>

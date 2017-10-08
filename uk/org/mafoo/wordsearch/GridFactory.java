@@ -155,11 +155,13 @@ public class GridFactory {
 	}
 
 	public static char[][] makeGrid(List<String> words, int height, int width) {
-		return makeGrid(words, height, width, false);
+		return makeGrid(words, height, width, Modes.NORMAL);
 	}
 
-	public static char[][] makeGrid(List<String> words, int height, int width, boolean simple) {
+	public static char[][] makeGrid(List<String> words, int height, int width, Modes mode) {
 		char[][] grid = new char[height][width];
+
+		bool simple = (mode == Modes.SIMPLE || mode == Modes.CROSSWORD);
 
 		// Place words at random?
 		for (String word : words) {
@@ -180,12 +182,14 @@ public class GridFactory {
 			}
 		}
 
-		// Fill rest of grid
-		for (int y=0; y<height; y++) {
-			for (int x=0; x<width; x++) {
-				if (grid[y][x] == Character.UNASSIGNED) 
-					// grid[y][x] = '_';
-					grid[y][x] = getRandomChar();
+		if(mode != Modes.CROSSWORD) {
+			// Fill rest of grid
+			for (int y=0; y<height; y++) {
+				for (int x=0; x<width; x++) {
+					if (grid[y][x] == Character.UNASSIGNED) 
+						// grid[y][x] = '_';
+						grid[y][x] = getRandomChar();
+				}
 			}
 		}
 

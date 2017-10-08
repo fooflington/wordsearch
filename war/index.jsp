@@ -25,7 +25,9 @@ Dining Room
 	<br />
 	<input type="number" name="height" min="3" max="50" value="15" />
 	<input type="number" name="width" min="3" max="50" value="15" />
-	<input type="checkbox" name="simple" value="yes">Simple [<span class="tooltip" title="In simple mode, words are only placed Left-to-Right or Top-to-Bottom">?</span>]</span>
+	<input type="radio" name="mode" value="NORMAL" checked />Normal 
+	<input type="radio" name="mode" value="SIMPLE" />Simple[<span class="tooltip" title="In simple mode, words are only placed Left-to-Right or Top-to-Bottom">?</span>]
+	<input type="radio" name="mode" value="CROSSWORD" />Crossword
 	<input type="submit" value="Build!" />
 </form>
 

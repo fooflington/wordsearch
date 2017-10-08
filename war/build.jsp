@@ -17,7 +17,7 @@
 	String name = StringEscapeUtils.escapeHtml(request.getParameter("name"));
 
 	if (request.getParameter("words").length() > 2048) { throw new Exception("Input too large"); }
-	if (height > 100 || width > 100) { throw new Exception("Dimentions too large"); }
+	if (height > 100 || width > 100) { throw new Exception("Dimensions too large"); }
 
 	List<String> words = new ArrayList<String>();
 	for ( String line : request.getParameter("words").split("\r\n")) {

@@ -17,5 +17,10 @@ Once built, you need to make a "war" file to deploy to your J2EE container (test
 ```
 $ cd war && jar cfv ../wordsearch.war .
 ```
-
 Then deploy your war file :-)
+
+Alternatively you can test-run the engine...
+```
+$ make run <wordlist.txt
+```
+

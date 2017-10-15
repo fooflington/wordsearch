@@ -56,7 +56,7 @@ public class GridFactory {
 		while ((s = in.readLine()) != null && s.length() != 0) {
 			words.add(s);
 		}
-		char[][] g = makeGrid(words, Integer.parseInt(args[0]), Integer.parseInt(args[1]));
+		char[][] g = makeGrid(words, Integer.parseInt(args[0]), Integer.parseInt(args[1]), false, false);
 		dump2d(g);
 	}
 
@@ -155,10 +155,10 @@ public class GridFactory {
 	}
 
 	public static char[][] makeGrid(List<String> words, int height, int width) {
-		return makeGrid(words, height, width, Modes.CROSSWORD);
+		return makeGrid(words, height, width, false, true);
 	}
 
-	public static char[][] makeGrid(List<String> words, int height, int width, Modes mode) {
+	public static char[][] makeGrid(List<String> words, int height, int width, boolean simple, boolean fill) {
 		char[][] grid = new char[height][width];
 
 		// Place words at random?

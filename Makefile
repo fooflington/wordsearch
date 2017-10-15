@@ -17,7 +17,7 @@ OBJS = ${SRCS:.java=.class}
 all: build wordsearch.jar
 
 run: all
-	$(JAVA) uk.org.mafoo.wordsearch.GridFactory 10 10
+	$(JAVA) uk.org.mafoo.wordsearch.GridFactory 15 15
 
 .java.class:
 	$(JAVAC) $(JFLAGS) $<

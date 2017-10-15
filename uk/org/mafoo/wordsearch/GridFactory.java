@@ -155,7 +155,7 @@ public class GridFactory {
 	}
 
 	public static char[][] makeGrid(List<String> words, int height, int width) {
-		return makeGrid(words, height, width, Modes.NORMAL);
+		return makeGrid(words, height, width, Modes.CROSSWORD);
 	}
 
 	public static char[][] makeGrid(List<String> words, int height, int width, Modes mode) {
@@ -205,6 +205,7 @@ public class GridFactory {
 		// System.out.println("[" + word + "] Placing @ " + x + "," + y + " going " + direction);
 		char[][] tempgrid = clone2d(grid);
 		for( char c : word.toUpperCase().toCharArray() ) {
+
 			if(!Character.isLetter(c)) continue;
 			if(grid[y][x] != Character.UNASSIGNED) {
 				if (grid[y][x] != c) {

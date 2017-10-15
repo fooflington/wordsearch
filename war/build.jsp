@@ -55,7 +55,7 @@
 			<% for(char c : row) { 
 				csv += "" + c + ',';
 			%>
-			<td class="cell"><%= c %></td>
+			<td class="cell"><%= c != Character.UNASSIGNED ? c : "&nbsp" %></td>
 			<% 	} %>
 		</tr>
 	<% 

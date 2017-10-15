@@ -1,6 +1,6 @@
 package uk.org.mafoo.wordsearch;
 
-enum Modes {
+public enum Modes {
 	NORMAL,
 	SIMPLE,
 	CROSSWORD;

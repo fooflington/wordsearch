@@ -161,7 +161,7 @@ public class GridFactory {
 	public static char[][] makeGrid(List<String> words, int height, int width, Modes mode) {
 		char[][] grid = new char[height][width];
 
-		bool simple = (mode == Modes.SIMPLE || mode == Modes.CROSSWORD);
+		boolean simple = (mode == Modes.SIMPLE || mode == Modes.CROSSWORD);
 
 		// Place words at random?
 		for (String word : words) {

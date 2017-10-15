@@ -7,7 +7,8 @@ SRCS = uk/org/mafoo/wordsearch/GridFactory.java \
 	uk/org/mafoo/wordsearch/Bounds.java \
 	uk/org/mafoo/wordsearch/CouldNotPlaceWordException.java \
 	uk/org/mafoo/wordsearch/Direction.java \
-	uk/org/mafoo/wordsearch/DistributedRandomNumberGenerator.java
+	uk/org/mafoo/wordsearch/DistributedRandomNumberGenerator.java \
+	uk/org/mafoo/wordsearch/Modes.java
 
 OBJS = ${SRCS:.java=.class}
 

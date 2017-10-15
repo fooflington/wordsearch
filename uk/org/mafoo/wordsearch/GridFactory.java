@@ -61,8 +61,8 @@ public class GridFactory {
 	}
 
 	private static Direction[] directions = new Direction[] { Direction.N, Direction.NE, Direction.E, Direction.SE, Direction.S, Direction.SW, Direction.W, Direction.NW };
-	private static Direction getDirection(boolean simple) {
-		if(simple) {
+	private static Direction getDirection(Modes mode) {
+		if(mode == Modes.SIMPLE || mode == Modes.CROSSWORD) {
 			return rnd.nextBoolean() ? Direction.E : Direction.S;
 		} else {
 			return directions[rnd.nextInt(directions.length-1)];
@@ -161,14 +161,12 @@ public class GridFactory {
 	public static char[][] makeGrid(List<String> words, int height, int width, Modes mode) {
 		char[][] grid = new char[height][width];
 
-		boolean simple = (mode == Modes.SIMPLE || mode == Modes.CROSSWORD);
-
 		// Place words at random?
 		for (String word : words) {
 			int tries = 0;
 			while(true) {
 				try {
-					grid = placeWord(word, grid, simple);
+					grid = placeWord(word, grid, mode);
 					break;
 				} catch (CouldNotPlaceWordException e) {
 					if(tries > MAX_TRIES) {
@@ -196,8 +194,8 @@ public class GridFactory {
 		return grid;
 	}
 
-	private static char[][] placeWord(String word, char[][] grid, boolean simple) throws CouldNotPlaceWordException {
-		Direction direction = getDirection(simple);
+	private static char[][] placeWord(String word, char[][] grid, Modes mode) throws CouldNotPlaceWordException {
+		Direction direction = getDirection(mode);
 		Bounds b = getBounds(grid.length, grid[0].length, direction, word.length());
 		// System.out.println("[" + word + "] bounds: " + b);
 		

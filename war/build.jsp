@@ -15,8 +15,8 @@
 	int width  = Integer.parseInt(request.getParameter("width"));
 	Modes mode = Modes.NORMAL;
 	if(request.getParameter("mode") != null) {
-		if(request.getParameter("mode") == "SIMPLE") mode = Modes.SIMPLE;
-		if(request.getParameter("mode") == "CROSSWORD") mode = Modes.CROSSWORD;
+		if(request.getParameter("mode").equals("SIMPLE")) mode = Modes.SIMPLE;
+		if(request.getParameter("mode").equals("CROSSWORD")) mode = Modes.CROSSWORD;
 	}
 	String name = StringEscapeUtils.escapeHtml(request.getParameter("name"));
 
@@ -33,6 +33,7 @@
 
   	String csv = "";
 %>
+
 <body>
 <h1><%= name %></h1>
 <div class="noprint">

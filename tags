@@ -1,0 +1,52 @@
+!_TAG_FILE_FORMAT	2	/extended format; --format=1 will not append ;" to lines/
+!_TAG_FILE_SORTED	1	/0=unsorted, 1=sorted, 2=foldcase/
+!_TAG_PROGRAM_AUTHOR	Darren Hiebert	/dhiebert@users.sourceforge.net/
+!_TAG_PROGRAM_NAME	Exuberant Ctags	//
+!_TAG_PROGRAM_URL	http://ctags.sourceforge.net	/official site/
+!_TAG_PROGRAM_VERSION	5.9~svn20110310	//
+Bounds	uk/org/mafoo/wordsearch/Bounds.java	/^	protected Bounds(int min_y, int max_y, int min_x, int max_x) {$/;"	m	class:Bounds
+Bounds	uk/org/mafoo/wordsearch/Bounds.java	/^class Bounds {$/;"	c
+CouldNotPlaceWordException	uk/org/mafoo/wordsearch/CouldNotPlaceWordException.java	/^	protected CouldNotPlaceWordException() {$/;"	m	class:CouldNotPlaceWordException
+CouldNotPlaceWordException	uk/org/mafoo/wordsearch/CouldNotPlaceWordException.java	/^class CouldNotPlaceWordException extends Exception {$/;"	c
+Direction	uk/org/mafoo/wordsearch/Direction.java	/^enum Direction { N, NE, E, SE, S, SW, W, NW; };$/;"	g
+DistributedRandomNumberGenerator	uk/org/mafoo/wordsearch/DistributedRandomNumberGenerator.java	/^    public DistributedRandomNumberGenerator() {$/;"	m	class:DistributedRandomNumberGenerator
+DistributedRandomNumberGenerator	uk/org/mafoo/wordsearch/DistributedRandomNumberGenerator.java	/^public class DistributedRandomNumberGenerator {$/;"	c
+E	uk/org/mafoo/wordsearch/Direction.java	/^enum Direction { N, NE, E, SE, S, SW, W, NW; };$/;"	e	enum:Direction	file:
+GridFactory	uk/org/mafoo/wordsearch/GridFactory.java	/^public class GridFactory {$/;"	c
+MAX_TRIES	uk/org/mafoo/wordsearch/GridFactory.java	/^	static final int MAX_TRIES = 500;$/;"	f	class:GridFactory
+N	uk/org/mafoo/wordsearch/Direction.java	/^enum Direction { N, NE, E, SE, S, SW, W, NW; };$/;"	e	enum:Direction	file:
+NE	uk/org/mafoo/wordsearch/Direction.java	/^enum Direction { N, NE, E, SE, S, SW, W, NW; };$/;"	e	enum:Direction	file:
+NW	uk/org/mafoo/wordsearch/Direction.java	/^enum Direction { N, NE, E, SE, S, SW, W, NW; };$/;"	e	enum:Direction	file:
+S	uk/org/mafoo/wordsearch/Direction.java	/^enum Direction { N, NE, E, SE, S, SW, W, NW; };$/;"	e	enum:Direction	file:
+SE	uk/org/mafoo/wordsearch/Direction.java	/^enum Direction { N, NE, E, SE, S, SW, W, NW; };$/;"	e	enum:Direction	file:
+SW	uk/org/mafoo/wordsearch/Direction.java	/^enum Direction { N, NE, E, SE, S, SW, W, NW; };$/;"	e	enum:Direction	file:
+W	uk/org/mafoo/wordsearch/Direction.java	/^enum Direction { N, NE, E, SE, S, SW, W, NW; };$/;"	e	enum:Direction	file:
+addNumber	uk/org/mafoo/wordsearch/DistributedRandomNumberGenerator.java	/^    public void addNumber(int value, double distribution) {$/;"	m	class:DistributedRandomNumberGenerator
+chars	uk/org/mafoo/wordsearch/GridFactory.java	/^	private static char[] chars = new char[] {$/;"	f	class:GridFactory	file:
+clone2d	uk/org/mafoo/wordsearch/GridFactory.java	/^	private static char[][] clone2d(char[][] source) {$/;"	m	class:GridFactory	file:
+directions	uk/org/mafoo/wordsearch/GridFactory.java	/^	private static Direction[] directions = new Direction[] { Direction.N, Direction.NE, Direction.E, Direction.SE, Direction.S, Direction.SW, Direction.W, Direction.NW };$/;"	f	class:GridFactory	file:
+distSum	uk/org/mafoo/wordsearch/DistributedRandomNumberGenerator.java	/^    private double distSum;$/;"	f	class:DistributedRandomNumberGenerator	file:
+distribution	uk/org/mafoo/wordsearch/DistributedRandomNumberGenerator.java	/^    private HashMap<Integer, Double> distribution;$/;"	f	class:DistributedRandomNumberGenerator	file:
+drng	uk/org/mafoo/wordsearch/GridFactory.java	/^	static DistributedRandomNumberGenerator drng = new DistributedRandomNumberGenerator();$/;"	f	class:GridFactory
+dump2d	uk/org/mafoo/wordsearch/GridFactory.java	/^	private static void dump2d(char[][] g) {$/;"	m	class:GridFactory	file:
+getBounds	uk/org/mafoo/wordsearch/GridFactory.java	/^	private static Bounds getBounds(int height, int width, Direction direction, int length) {$/;"	m	class:GridFactory	file:
+getDirection	uk/org/mafoo/wordsearch/GridFactory.java	/^	private static Direction getDirection(boolean simple) {$/;"	m	class:GridFactory	file:
+getDistributedRandomNumber	uk/org/mafoo/wordsearch/DistributedRandomNumberGenerator.java	/^    public int getDistributedRandomNumber() {$/;"	m	class:DistributedRandomNumberGenerator
+getRandomChar	uk/org/mafoo/wordsearch/GridFactory.java	/^	private static char getRandomChar() {$/;"	m	class:GridFactory	file:
+main	uk/org/mafoo/wordsearch/GridFactory.java	/^	public static void main(String[] args) throws IOException {$/;"	m	class:GridFactory
+makeGrid	uk/org/mafoo/wordsearch/GridFactory.java	/^	public static char[][] makeGrid(List<String> words, int height, int width) {$/;"	m	class:GridFactory
+makeGrid	uk/org/mafoo/wordsearch/GridFactory.java	/^	public static char[][] makeGrid(List<String> words, int height, int width, boolean simple) {$/;"	m	class:GridFactory
+max_x	uk/org/mafoo/wordsearch/Bounds.java	/^	int max_x;$/;"	f	class:Bounds
+max_y	uk/org/mafoo/wordsearch/Bounds.java	/^	int max_y;$/;"	f	class:Bounds
+min_x	uk/org/mafoo/wordsearch/Bounds.java	/^	int min_x;$/;"	f	class:Bounds
+min_y	uk/org/mafoo/wordsearch/Bounds.java	/^	int min_y;$/;"	f	class:Bounds
+move_x	uk/org/mafoo/wordsearch/GridFactory.java	/^	private static int move_x(int x, Direction d) {$/;"	m	class:GridFactory	file:
+move_y	uk/org/mafoo/wordsearch/GridFactory.java	/^	private static int move_y(int y, Direction d) {$/;"	m	class:GridFactory	file:
+placeWord	uk/org/mafoo/wordsearch/GridFactory.java	/^	private static char[][] placeWord(String word, char[][] grid, boolean simple) throws CouldNotPlaceWordException {$/;"	m	class:GridFactory	file:
+rnd	uk/org/mafoo/wordsearch/GridFactory.java	/^	static Random rnd = new Random();$/;"	f	class:GridFactory
+toString	uk/org/mafoo/wordsearch/Bounds.java	/^	public String toString() {$/;"	m	class:Bounds
+uk.org.mafoo.wordsearch	uk/org/mafoo/wordsearch/Bounds.java	/^package uk.org.mafoo.wordsearch;$/;"	p
+uk.org.mafoo.wordsearch	uk/org/mafoo/wordsearch/CouldNotPlaceWordException.java	/^package uk.org.mafoo.wordsearch;$/;"	p
+uk.org.mafoo.wordsearch	uk/org/mafoo/wordsearch/Direction.java	/^package uk.org.mafoo.wordsearch;$/;"	p
+uk.org.mafoo.wordsearch	uk/org/mafoo/wordsearch/DistributedRandomNumberGenerator.java	/^package uk.org.mafoo.wordsearch;$/;"	p
+uk.org.mafoo.wordsearch	uk/org/mafoo/wordsearch/GridFactory.java	/^package uk.org.mafoo.wordsearch;$/;"	p

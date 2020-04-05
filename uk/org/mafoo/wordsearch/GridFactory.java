@@ -61,8 +61,8 @@ public class GridFactory {
 	}
 
 	private static Direction[] directions = new Direction[] { Direction.N, Direction.NE, Direction.E, Direction.SE, Direction.S, Direction.SW, Direction.W, Direction.NW };
-	private static Direction getDirection(boolean simple) {
-		if(simple) {
+	private static Direction getDirection(Modes mode) {
+		if(mode == Modes.SIMPLE || mode == Modes.CROSSWORD) {
 			return rnd.nextBoolean() ? Direction.E : Direction.S;
 		} else {
 			return directions[rnd.nextInt(directions.length-1)];
@@ -166,7 +166,7 @@ public class GridFactory {
 			int tries = 0;
 			while(true) {
 				try {
-					grid = placeWord(word, grid, simple);
+					grid = placeWord(word, grid, mode);
 					break;
 				} catch (CouldNotPlaceWordException e) {
 					if(tries > MAX_TRIES) {
@@ -180,8 +180,8 @@ public class GridFactory {
 			}
 		}
 
-		// Fill rest of grid
-		if(fill) {
+		if(mode != Modes.CROSSWORD) {
+			// Fill rest of grid
 			for (int y=0; y<height; y++) {
 				for (int x=0; x<width; x++) {
 					if (grid[y][x] == Character.UNASSIGNED) 
@@ -194,8 +194,8 @@ public class GridFactory {
 		return grid;
 	}
 
-	private static char[][] placeWord(String word, char[][] grid, boolean simple) throws CouldNotPlaceWordException {
-		Direction direction = getDirection(simple);
+	private static char[][] placeWord(String word, char[][] grid, Modes mode) throws CouldNotPlaceWordException {
+		Direction direction = getDirection(mode);
 		Bounds b = getBounds(grid.length, grid[0].length, direction, word.length());
 		// System.out.println("[" + word + "] bounds: " + b);
 		
@@ -205,6 +205,7 @@ public class GridFactory {
 		// System.out.println("[" + word + "] Placing @ " + x + "," + y + " going " + direction);
 		char[][] tempgrid = clone2d(grid);
 		for( char c : word.toUpperCase().toCharArray() ) {
+
 			if(!Character.isLetter(c)) continue;
 			if(grid[y][x] != Character.UNASSIGNED) {
 				if (grid[y][x] != c) {

@@ -13,7 +13,11 @@
 
 	int height = Integer.parseInt(request.getParameter("height"));
 	int width  = Integer.parseInt(request.getParameter("width"));
-	boolean simple = request.getParameter("simple") != null;
+	Modes mode = Modes.NORMAL;
+	if(request.getParameter("mode") != null) {
+		if(request.getParameter("mode").equals("SIMPLE")) mode = Modes.SIMPLE;
+		if(request.getParameter("mode").equals("CROSSWORD")) mode = Modes.CROSSWORD;
+	}
 	String name = StringEscapeUtils.escapeHtml(request.getParameter("name"));
 
 	if (request.getParameter("words").length() > 2048) { throw new Exception("Input too large"); }
@@ -25,10 +29,11 @@
 	}
   	Collections.sort(words);
 
-  	char[][] grid = GridFactory.makeGrid(words, height, width, simple);
+  	char[][] grid = GridFactory.makeGrid(words, height, width, mode);
 
   	String csv = "";
 %>
+
 <body>
 <h1><%= name %></h1>
 <div class="noprint">
@@ -50,7 +55,7 @@
 			<% for(char c : row) { 
 				csv += "" + c + ',';
 			%>
-			<td class="cell"><%= c %></td>
+			<td class="cell"><%= c != Character.UNASSIGNED ? c : "&nbsp" %></td>
 			<% 	} %>
 		</tr>
 	<% 

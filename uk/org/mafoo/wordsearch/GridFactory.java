@@ -37,7 +37,7 @@ public class GridFactory {
 		drng.addNumber(23, 0.0017d); // X
 		drng.addNumber(24, 0.0211d); // Y
 		drng.addNumber(25, 0.0007d); // Z
-	}	
+	}
 
 	private static char[] chars = new char[] {
 		'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z'
@@ -77,10 +77,10 @@ public class GridFactory {
 
 		Bounds b = new Bounds(0, height, 0, width);
 		length--; // arrays, duh
-		
+
 		if(
-			direction == Direction.N  || 
-			direction == Direction.NE || 
+			direction == Direction.N  ||
+			direction == Direction.NE ||
 			direction == Direction.NW
 			) {
 			b.min_y = length;
@@ -158,6 +158,10 @@ public class GridFactory {
 		return makeGrid(words, height, width, false, true);
 	}
 
+	public static char[][] makeGrid(List<String> words, int height, int width, boolean simple) {
+		return makeGrid(words, height, width, simple, true);
+	}
+
 	public static char[][] makeGrid(List<String> words, int height, int width, boolean simple, boolean fill) {
 		char[][] grid = new char[height][width];
 
@@ -184,7 +188,7 @@ public class GridFactory {
 		if(fill) {
 			for (int y=0; y<height; y++) {
 				for (int x=0; x<width; x++) {
-					if (grid[y][x] == Character.UNASSIGNED) 
+					if (grid[y][x] == Character.UNASSIGNED)
 						// grid[y][x] = '_';
 						grid[y][x] = getRandomChar();
 				}
@@ -198,7 +202,7 @@ public class GridFactory {
 		Direction direction = getDirection(simple);
 		Bounds b = getBounds(grid.length, grid[0].length, direction, word.length());
 		// System.out.println("[" + word + "] bounds: " + b);
-		
+
 		int x = rnd.nextInt(b.max_x - b.min_x) + b.min_x;
 		int y = rnd.nextInt(b.max_y - b.min_y) + b.min_y;
 
@@ -216,7 +220,7 @@ public class GridFactory {
 			tempgrid[y][x] = c;
 			x = move_x(x, direction);
 			y = move_y(y, direction);
-		
+
 		}
 		return tempgrid;
 	}

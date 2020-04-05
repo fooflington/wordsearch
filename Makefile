@@ -9,7 +9,7 @@ SRCS = uk/org/mafoo/wordsearch/CouldNotPlaceWordException.java \
        uk/org/mafoo/wordsearch/DistributedRandomNumberGenerator.java \
        uk/org/mafoo/wordsearch/Direction.java
 
-JSPS = $(wildcard war/*.jsp war/*.css)
+JSPS = $(wildcard war/*.jsp war/*.css war/WEB-INF/jspf/*.jspf)
 
 OBJS = ${SRCS:.java=.class}
 
@@ -27,6 +27,8 @@ clean:
 wordsearch.jar: $(OBJS)
 	jar cf $@ $(OBJS)
 
-wordsearch.war: wordsearch.jar
-	cp -f wordsearch.jar war/lib
-	jar -c -f $@ -C war .
+war/WEB-INF/lib/wordsearch.jar: wordsearch.jar
+	cp $< $@
+
+wordsearch.war: war/WEB-INF/lib/wordsearch.jar  $(JSPS)
+	jar -cvf $@ -C war .

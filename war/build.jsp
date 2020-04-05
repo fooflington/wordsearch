@@ -3,6 +3,7 @@
 <head>
 	<title>Wordsearch builder</title>
 	<link rel="stylesheet" type="text/css" href="base.css" />
+	<link href="https://fonts.googleapis.com/css2?family=Fira+Mono:wght@400;500&family=Roboto:wght@500&display=swap" rel="stylesheet"> 
 </head>
 <%@ page import="uk.org.mafoo.wordsearch.*" %>
 <%@ page import="java.util.*" %>

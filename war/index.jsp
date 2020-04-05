@@ -3,6 +3,7 @@
 <head>
 	<title>Wordsearch Builder</title>
 	<link rel="stylesheet" type="text/css" href="base.css" />
+	<link href="https://fonts.googleapis.com/css2?family=Fira+Mono:wght@400;500&family=Roboto:wght@500&display=swap" rel="stylesheet">
 </head>
 <body>
 <h1>Wordsearch Builder</h1>

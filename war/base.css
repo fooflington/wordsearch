@@ -1,5 +1,5 @@
-body { 
-	font-family: sans-serif; 
+body {
+	font-family: 'Roboto', sans-serif;
 }
 
 .tooltip {
@@ -14,8 +14,8 @@ table, th, td {
 }
 
 table#grid td {
-	font-family: monospace; 
-	font-size: 22px;
+	font-family: 'Fira Mono', monospace;
+	font-size: 14pt;
 }
 
 #wrapper {

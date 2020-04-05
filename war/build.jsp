@@ -3,7 +3,7 @@
 <head>
 	<title>Wordsearch builder</title>
 	<link rel="stylesheet" type="text/css" href="base.css" />
-	<link href="https://fonts.googleapis.com/css2?family=Fira+Mono:wght@400;500&family=Roboto:wght@500&display=swap" rel="stylesheet"> 
+	<link href="https://fonts.googleapis.com/css2?family=Fira+Mono:wght@400;500&family=Roboto:wght@500&display=swap" rel="stylesheet">
 </head>
 <%@ page import="uk.org.mafoo.wordsearch.*" %>
 <%@ page import="java.util.*" %>
@@ -22,7 +22,7 @@
 
 	List<String> words = new ArrayList<String>();
 	for ( String line : request.getParameter("words").split("\r\n")) {
-		words.add(line.trim());
+		words.add(line.trim().toLowerCase());
 	}
   	Collections.sort(words);
 
@@ -48,18 +48,18 @@
 	<table id="grid">
 	<% for(char[] row : grid) { %>
 		<tr>
-			<% for(char c : row) { 
+			<% for(char c : row) {
 				csv += "" + c + ',';
 			%>
 			<td class="cell"><%= c %></td>
 			<% 	} %>
 		</tr>
-	<% 
+	<%
 		csv += "\\n";
 		}
 	%>
 	</table>
-</div> <!-- end wordsearch --> 
+</div> <!-- end wordsearch -->
 
 <div id="words">
 	<h2>Words</h2>
@@ -69,7 +69,7 @@
 		<% } %>
 		</ul>
 </div> <!-- end words -->
-</div> <!-- end wrapper --> 
+</div> <!-- end wrapper -->
 <br />
 <br />
 <%@include file="/WEB-INF/jspf/footer.jspf" %>

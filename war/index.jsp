@@ -12,7 +12,7 @@
 <h2>Words</h2>
 <form action="build.jsp" method="post">
 Name: <input type="text" size="25" name="name" value="Wordsearch"><br />
-<textarea name="words" rows="10">
+<textarea id="textarea_words" name="words" rows="10">
 Kitchen
 Lounge
 Study

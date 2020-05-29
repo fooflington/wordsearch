@@ -23,6 +23,7 @@ table#grid td {
 }
 #wordsearch {
 	float: left;
+	margin-bottom: 24px;
 }
 
 #words {

@@ -30,7 +30,7 @@
 	Collections.sort(words);
 
 	Connection conn = DriverManager.getConnection(
-		"jdbc:sqlite:" + getServletContext().getInitParameter("sqlite_db"));
+		"jdbc:sqlite:" + getServletContext().getRealPath("/WEB-INF/files/database.sqlite"));
 	PreparedStatement stmt = conn.prepareStatement(
 		"INSERT INTO grids (remotehost, input, size_x, size_y, simple) VALUES (?, ?, ?, ?, ?)",
 		Statement.RETURN_GENERATED_KEYS);

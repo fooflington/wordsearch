@@ -1,7 +1,7 @@
 JAVA  = /usr/bin/java
-# JAVAFLAGS = -version # -classpath $(LIBS)
+LIBS = .:war/WEB-INF/lib/commons-lang.jar:war/WEB-INF/lib/sqlite-jdbc.jar
 JAVAC = /usr/bin/javac
-JFLAGS = -g # -classpath $(LIBS)
+JFLAGS = -g -classpath $(LIBS)
 
 SRCS = uk/org/mafoo/wordsearch/CouldNotPlaceWordException.java \
        uk/org/mafoo/wordsearch/Bounds.java \

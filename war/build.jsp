@@ -9,6 +9,9 @@
 <%@ page import="java.util.*" %>
 <%@ page import="org.apache.commons.lang.StringUtils" %>
 <%@ page import="org.apache.commons.lang.StringEscapeUtils" %>
+<%@ page import="java.sql.*" %>
+<%@ page import="org.sqlite.*" %>
+
 <%@ page errorPage="error.jsp" %>
 <%
 
@@ -24,22 +27,53 @@
 	for ( String line : request.getParameter("words").split("\r\n")) {
 		words.add(line.trim().toLowerCase());
 	}
-  	Collections.sort(words);
+	Collections.sort(words);
 
-  	char[][] grid = GridFactory.makeGrid(words, height, width, simple);
+	Connection conn = DriverManager.getConnection(
+		"jdbc:sqlite:" + getServletContext().getInitParameter("sqlite_db"));
+	PreparedStatement stmt = conn.prepareStatement(
+		"INSERT INTO grids (remotehost, input, size_x, size_y, simple) VALUES (?, ?, ?, ?, ?)",
+		Statement.RETURN_GENERATED_KEYS);
+	// PreparedStatement getlastid = conn.prepareStatement("select last_insert_rowid();");
+	PreparedStatement stmt2 = conn.prepareStatement("UPDATE grids SET result=? WHERE id=?");
 
-  	String csv = "";
+	stmt.setString(1, request.getRemoteHost());
+	stmt.setString(2, words.toString());
+	stmt.setInt(3, height);
+	stmt.setInt(4, width);
+	stmt.setBoolean(5, simple);
+	stmt.executeUpdate();
+	ResultSet record_id_rs = stmt.getGeneratedKeys();
+	int record_id = -1;
+	if(record_id_rs.next()){
+		record_id = record_id_rs.getInt(1);
+	}
+
+	// Actually generate the grid
+	char[][] grid = GridFactory.makeGrid(words, height, width, simple);
+
+	StringBuilder _csv = new StringBuilder();
+	for (char[] cs : grid) {
+		for(char c : cs) {
+			_csv.append(c);
+			_csv.append(",");
+		}
+		_csv.append("\r\n");
+	}
+
+	String csv = _csv.toString();
+
+	stmt2.setString(1, csv);
+	stmt2.setInt(2, record_id);
+	stmt2.executeUpdate();
+	conn.close();
 %>
 <body>
 <h1><%= name %></h1>
 <div class="noprint">
-	[ <a href="index.jsp">Start again</a> | <a id='csvdownload'>Download CSV</a> ]
+	[ <a href="index.jsp">Start again</a> | <a id='csvdownload' href="data:text/csv;base64,<%= Base64.getEncoder().encodeToString(csv.getBytes()) %>">Download CSV</a> ]
 </div>
-<script>
-    var csv = '<%= csv %>';
-    var csvdownload = document.getElementById('csvdownload');
-    csvdownload.href='data:text/csv;base64,' + btoa(csv);
-</script>
+
 </div>
 
 <div id="wrapper">

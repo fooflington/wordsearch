@@ -6,7 +6,7 @@ import java.util.*;
 public class GridFactory {
 
 	static Random rnd = new Random();
-	static final int MAX_TRIES = 500;
+	static final int MAX_TRIES = 5000;
 
 	/* https://www.math.cornell.edu/~mec/2003-2004/cryptography/subs/frequencies.html */
 	static DistributedRandomNumberGenerator drng = new DistributedRandomNumberGenerator();

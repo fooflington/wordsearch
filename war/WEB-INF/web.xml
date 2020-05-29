@@ -10,4 +10,20 @@
 	Wordsearch building app
     </description>
 
-</web-app> 
+    <context-param>
+        <param-name>sqlite_db</param-name>
+        <param-value>/tmp/wordsearch.db</param-value>
+    </context-param>
+
+    <security-constraint>
+        <web-resource-collection>
+            <web-resource-name>dump</web-resource-name>
+            <url-pattern>/dump.jsp</url-pattern>
+        </web-resource-collection>
+        <auth-constraint>
+            <role-name>admin</role-name>
+        </auth-constraint>
+    </security-constraint>
+
+
+</web-app>
